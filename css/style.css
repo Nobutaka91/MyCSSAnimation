@@ -8,10 +8,10 @@ body {
     background-color: orange;
 
     transition-property: transform, background;
-    transition-duration: 1s;
+    transition-duration: .3s;
+    transition-delay: 1s;
 }
 
 .box:hover {
     transform: translate(30px);
-    background: skyblue;
 }
