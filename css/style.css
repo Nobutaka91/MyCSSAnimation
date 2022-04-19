@@ -2,16 +2,26 @@ body {
     padding: 64px;
 }
 
-.btn {
-    padding: 16px 32px;
-    background: hsl(200, 100%, 40%);
-    color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 1px 2px rgba(0,0,0, .1);
-    cursor: pointer;
-    transition: background .3s;
+.loading {
+    width: 40px;
+    height: 40px;
+    border: 8px solid #ccc;
+    /* 図形の右辺を透明にする */
+    border-right-color: transparent;
+    border-radius: 50%;
+
+    /* アニメーションの設定 */
+    animation: spin .8s infinite linear;
+    /* infinitez → ずっと動く , linear → 等速で動く */
 }
 
-.btn:hover {
-    background: hsl(200, 100%, 45%);
-};
+/* ずっと回転させる */
+@keyframes spin {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
