@@ -1,27 +1,38 @@
 body {
-    padding: 64px;
+  padding: 64px;
 }
 
-.loading {
-    width: 40px;
-    height: 40px;
-    border: 8px solid #ccc;
-    /* 図形の右辺を透明にする */
-    border-right-color: transparent;
-    border-radius: 50%;
+.message {
+  width: 300px;
+  padding: 8px 16px;
+  background: black;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* 要素の位置を固定する */
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
 
-    /* アニメーションの設定 */
-    animation: spin .8s infinite linear;
-    /* infinitez → ずっと動く , linear → 等速で動く */
+  animation: popup 2s forwards;
+  /* fowards → 最後にその位置にとどまってくれる */
 }
 
-/* ずっと回転させる */
-@keyframes spin {
-    from {
-        transform: none;
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+@keyframes popup {
+  0% {
+    transform: translateY(20px);
+    /* 透明度の設定 */
+    opacity: 0;
+    /* 最初にパッと出てくるような動きにする */
+    animation-timing-function: ease-out;
+  }
+  20%, 80% {
+    transform: none;
+    /* none → その場にとどまる */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
 }
