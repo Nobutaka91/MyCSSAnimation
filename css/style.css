@@ -34,5 +34,18 @@ body {
   100% {
     transform: translateY(20px);
     opacity: 0;
+     /* 100%の地点でマウスのイベントに反応しなくする。 */
+     pointer-events: none;
+    /* これにより、下のボタンがクリックできるようになる */
   }
+}
+
+button {
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+
 }
