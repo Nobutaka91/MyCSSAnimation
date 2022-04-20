@@ -1,16 +1,51 @@
 body {
-    padding: 64px;
+  padding: 64px;
 }
 
-.box {
-    width: 100px;
-    height: 100px;
-    background-color: orange;
+.message {
+  width: 300px;
+  padding: 8px 16px;
+  background: black;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* 要素の位置を固定する */
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
 
-    transition-property: border-radius;
-    transition-duration: 1s;
+  animation: popup 2s forwards;
+  /* fowards → 最後にその位置にとどまってくれる */
 }
 
-.box:hover {
-    border-radius: 50%;
+@keyframes popup {
+  0% {
+    transform: translateY(20px);
+    /* 透明度の設定 */
+    opacity: 0;
+    /* 最初にパッと出てくるような動きにする */
+    animation-timing-function: ease-out;
+  }
+  20%, 80% {
+    transform: none;
+    /* none → その場にとどまる */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+     /* 100%の地点でマウスのイベントに反応しなくする。 */
+     pointer-events: none;
+    /* これにより、下のボタンがクリックできるようになる */
+  }
+}
+
+button {
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+
 }
